@@ -6,6 +6,7 @@
 package salmans;
 
 import java.util.ArrayList;
+import java.util.Stack;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -211,10 +212,20 @@ public class Main extends javax.swing.JFrame {
         jLabel12.setText("Agregar Ingrediente");
 
         modifyDeleteIngredientfromProduct.setText("Eliminar");
+        modifyDeleteIngredientfromProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyDeleteIngredientfromProductMouseClicked(evt);
+            }
+        });
 
         jLabel13.setText("Eliminar Ingrediente");
 
         modifyAddIngredientToProduct.setText("Agregar");
+        modifyAddIngredientToProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyAddIngredientToProductMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -581,6 +592,19 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_modifyProductComboBoxActionPerformed
 
+    private void modifyAddIngredientToProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyAddIngredientToProductMouseClicked
+        this.ingredientsInProduct = this.products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients();
+        this.ingredientsInProduct.add(this.ingredients.get(this.modifyAddIngredienteToProductProductComboBox.getSelectedIndex()));
+        this.products.get(this.modifyProductComboBox.getSelectedIndex()).setIngredients(this.ingredientsInProduct);
+        System.out.println(this.products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients());
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modifyAddIngredientToProductMouseClicked
+
+    private void modifyDeleteIngredientfromProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyDeleteIngredientfromProductMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modifyDeleteIngredientfromProductMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -676,5 +700,6 @@ public class Main extends javax.swing.JFrame {
     private ArrayList<Ingredients> ingredients = new ArrayList();
     private ArrayList<Ingredients> ingredientsInProduct;
     private ArrayList<Products> products = new ArrayList();
+    private Stack fresh;
 
 }
