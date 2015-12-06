@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author mauricio
  */
 public class Trucks {
+
     private int ID;
     private ArrayList<Products> products = new ArrayList();
 
@@ -40,7 +41,7 @@ public class Trucks {
 
     @Override
     public String toString() {
-        return "Trucks{" + "ID=" + ID + ", products=" + products + '}';
+        return "" + this.getID();
     }
-    
+
 }

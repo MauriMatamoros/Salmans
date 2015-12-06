@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author mauricio
  */
 public class Products {
+
     private String name;
     private int time;
     private int price;
@@ -60,7 +61,7 @@ public class Products {
 
     @Override
     public String toString() {
-        return "Products{" + "name=" + name + ", time=" + time + ", price=" + price + ", ingredients=" + ingredients + '}';
+        return "" + this.getName();
     }
-    
+
 }

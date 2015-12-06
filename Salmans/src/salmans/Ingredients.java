@@ -10,6 +10,7 @@ package salmans;
  * @author mauricio
  */
 public class Ingredients {
+
     private String name;
 
     public Ingredients(String name) {
@@ -26,8 +27,7 @@ public class Ingredients {
 
     @Override
     public String toString() {
-        return "Ingredients{" + "name=" + name + '}';
+        return "" + this.getName();
     }
-    
-    
+
 }

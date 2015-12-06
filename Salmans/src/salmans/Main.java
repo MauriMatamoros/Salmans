@@ -6,6 +6,7 @@
 package salmans;
 
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -41,7 +42,7 @@ public class Main extends javax.swing.JFrame {
         addProductPrice = new javax.swing.JTextField();
         addProductProductComboBox = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        addProductIngredienteComboBox = new javax.swing.JComboBox<>();
+        addProductIngredientComboBox = new javax.swing.JComboBox<>();
         addProduct = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -72,6 +73,13 @@ public class Main extends javax.swing.JFrame {
         FrameIngredients = new javax.swing.JFrame();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        addIngredient = new javax.swing.JButton();
+        addIngredientName = new javax.swing.JTextField();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        deleteIngredienteComboBox = new javax.swing.JComboBox<>();
+        deleteIngredient = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MenuProducts = new javax.swing.JMenuItem();
@@ -90,12 +98,22 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setText("Agregar Ingrediente");
 
         addProduct.setText("Agregar");
+        addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addProductMouseClicked(evt);
+            }
+        });
 
         jLabel5.setText("Producto");
 
         jLabel6.setText("Ingrediente");
 
         addIngredientToProduct.setText("Agregar");
+        addIngredientToProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addIngredientToProductMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,7 +145,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addProduct)
                     .addComponent(jLabel6)
-                    .addComponent(addProductIngredienteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addProductIngredientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(92, 92, 92))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +182,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addProductProductComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addProductIngredienteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addProductIngredientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(addIngredientToProduct)
                 .addContainerGap(59, Short.MAX_VALUE))
@@ -173,6 +191,12 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane1.addTab("Agregar", jPanel1);
 
         jLabel7.setText("Elija Producto a Modificar");
+
+        modifyProductComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyProductComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Nombre");
 
@@ -343,20 +367,77 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        FrameIngredients.setPreferredSize(new java.awt.Dimension(600, 400));
+        FrameIngredients.setPreferredSize(new java.awt.Dimension(220, 300));
+
+        jLabel15.setText("Nombre");
+
+        addIngredient.setText("Agregar");
+        addIngredient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addIngredientMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(addIngredient)
+                    .addComponent(addIngredientName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addComponent(addIngredientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(addIngredient)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Agregar", jPanel4);
+
+        jLabel16.setText("Ingrediente");
+
+        deleteIngredient.setText("Eliminar");
+        deleteIngredient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteIngredientMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(deleteIngredienteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteIngredient))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(deleteIngredienteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(deleteIngredient)
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Eliminar", jPanel5);
 
         javax.swing.GroupLayout FrameIngredientsLayout = new javax.swing.GroupLayout(FrameIngredients.getContentPane());
         FrameIngredients.getContentPane().setLayout(FrameIngredientsLayout);
@@ -376,11 +457,17 @@ public class Main extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home");
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jMenu1.setText("File");
 
         MenuProducts.setText("Productos");
+        MenuProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuProductsActionPerformed(evt);
+            }
+        });
         jMenu1.add(MenuProducts);
 
         MenuIngredients.setText("Ingredientes");
@@ -416,8 +503,83 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuIngredientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuIngredientsActionPerformed
+        this.FrameIngredients.setVisible(true);
+        this.FrameIngredients.setAlwaysOnTop(true);
+        this.FrameIngredients.setSize(220, 300);
+        this.FrameIngredients.toFront();
+        this.FrameIngredients.setLocationRelativeTo(null);
+        this.FrameIngredients.repaint();
         // TODO add your handling code here:
     }//GEN-LAST:event_MenuIngredientsActionPerformed
+
+    private void MenuProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuProductsActionPerformed
+        this.FrameProducts.setVisible(true);
+        this.FrameProducts.setAlwaysOnTop(true);
+        this.FrameProducts.setSize(600, 400);
+        this.FrameProducts.toFront();
+        this.FrameProducts.setLocationRelativeTo(null);
+        this.FrameProducts.repaint();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuProductsActionPerformed
+
+    private void addProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addProductMouseClicked
+        products.add(new Products(this.addProductName.getText(),
+                Integer.parseInt(this.addProductTime.getText()),
+                Integer.parseInt(this.addProductPrice.getText())));
+        this.addProductName.setText("");
+        this.addProductTime.setText("");
+        this.addProductPrice.setText("");
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.products.size(); i++) {
+            model.addElement(this.products.get(i));
+        }
+        this.addProductProductComboBox.setModel(model);
+        this.modifyProductComboBox.setModel(model);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addProductMouseClicked
+
+    private void addIngredientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addIngredientMouseClicked
+        ingredients.add(new Ingredients(this.addIngredientName.getText()));
+        this.addIngredientName.setText("");
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.ingredients.size(); i++) {
+            model.addElement(this.ingredients.get(i));
+        }
+        this.deleteIngredienteComboBox.setModel(model);
+        this.addProductIngredientComboBox.setModel(model);
+        this.modifyAddIngredienteToProductProductComboBox.setModel(model);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addIngredientMouseClicked
+
+    private void deleteIngredientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteIngredientMouseClicked
+        this.ingredients.remove(this.deleteIngredienteComboBox.getSelectedIndex());
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteIngredientMouseClicked
+
+    private void addIngredientToProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addIngredientToProductMouseClicked
+        if (this.products.get(this.addProductProductComboBox.getSelectedIndex()).getIngredients() != null) {
+            this.ingredientsInProduct = this.products.get(this.addProductProductComboBox.getSelectedIndex()).getIngredients();
+            this.ingredientsInProduct.add(this.ingredients.get(this.addProductIngredientComboBox.getSelectedIndex()));
+            this.products.get(this.addProductProductComboBox.getSelectedIndex()).setIngredients(this.ingredientsInProduct);
+        } else {
+            this.ingredientsInProduct = new ArrayList();
+            this.ingredientsInProduct.add(this.ingredients.get(this.addProductIngredientComboBox.getSelectedIndex()));
+            this.products.get(this.addProductProductComboBox.getSelectedIndex()).setIngredients(this.ingredientsInProduct);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addIngredientToProductMouseClicked
+
+    private void modifyProductComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyProductComboBoxActionPerformed
+        this.ingredientsInProduct = this.products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.ingredientsInProduct.size(); i++) {
+            model.addElement(this.ingredientsInProduct.get(i));
+        }
+        this.modifyDeleteProductIngredienteComboBox.setModel(model);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modifyProductComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -463,13 +625,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuIngredients;
     private javax.swing.JMenuItem MenuProducts;
     private javax.swing.JMenuItem MenuRoutes;
+    private javax.swing.JButton addIngredient;
+    private javax.swing.JTextField addIngredientName;
     private javax.swing.JButton addIngredientToProduct;
     private javax.swing.JButton addProduct;
-    private javax.swing.JComboBox<String> addProductIngredienteComboBox;
+    private javax.swing.JComboBox<String> addProductIngredientComboBox;
     private javax.swing.JTextField addProductName;
     private javax.swing.JTextField addProductPrice;
     private javax.swing.JComboBox<String> addProductProductComboBox;
     private javax.swing.JTextField addProductTime;
+    private javax.swing.JButton deleteIngredient;
+    private javax.swing.JComboBox<String> deleteIngredienteComboBox;
     private javax.swing.JButton deleteProduct;
     private javax.swing.JComboBox<String> deleteProductComboBox;
     private javax.swing.JLabel jLabel1;
@@ -478,6 +644,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -492,6 +660,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JButton modifyAddIngredientToProduct;
@@ -504,7 +673,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField modifyProductPrice;
     private javax.swing.JTextField modifyProductTime;
     // End of variables declaration//GEN-END:variables
-    private ArrayList<Ingredients> Ingredients;
-    private ArrayList<Products> Products;
-            
+    private ArrayList<Ingredients> ingredients = new ArrayList();
+    private ArrayList<Ingredients> ingredientsInProduct;
+    private ArrayList<Products> products = new ArrayList();
+
 }
