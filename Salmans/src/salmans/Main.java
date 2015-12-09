@@ -6,8 +6,30 @@
 package salmans;
 
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.Stack;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -21,6 +43,7 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -70,6 +93,14 @@ public class Main extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         deleteProduct = new javax.swing.JButton();
         FrameRoutes = new javax.swing.JFrame();
+        graphics = new javax.swing.JPanel();
+        relacion1 = new javax.swing.JComboBox<>();
+        relacion2 = new javax.swing.JComboBox<>();
+        agregarRelacion = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        distanciaText = new javax.swing.JTextField();
         FrameBakers = new javax.swing.JFrame();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -107,6 +138,12 @@ public class Main extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         truck1 = new javax.swing.JProgressBar();
         FrameTotal = new javax.swing.JFrame();
+        FrameOrdenar = new javax.swing.JFrame();
+        ordenarComboBox = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        order = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MenuProducts = new javax.swing.JMenuItem();
@@ -114,6 +151,7 @@ public class Main extends javax.swing.JFrame {
         MenuRoutes = new javax.swing.JMenuItem();
         MenuBakers = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         FrameProducts.setPreferredSize(new java.awt.Dimension(600, 400));
 
@@ -393,15 +431,81 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        graphics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                graphicsMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout graphicsLayout = new javax.swing.GroupLayout(graphics);
+        graphics.setLayout(graphicsLayout);
+        graphicsLayout.setHorizontalGroup(
+            graphicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        graphicsLayout.setVerticalGroup(
+            graphicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 298, Short.MAX_VALUE)
+        );
+
+        agregarRelacion.setText("Agregar Relacion");
+        agregarRelacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                agregarRelacionMouseClicked(evt);
+            }
+        });
+
+        jLabel31.setText("Punto A");
+
+        jLabel33.setText("Punto B");
+
+        jLabel34.setText("Distancia");
+
         javax.swing.GroupLayout FrameRoutesLayout = new javax.swing.GroupLayout(FrameRoutes.getContentPane());
         FrameRoutes.getContentPane().setLayout(FrameRoutesLayout);
         FrameRoutesLayout.setHorizontalGroup(
             FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(FrameRoutesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FrameRoutesLayout.createSequentialGroup()
+                        .addComponent(graphics, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(FrameRoutesLayout.createSequentialGroup()
+                        .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(FrameRoutesLayout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addComponent(relacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(FrameRoutesLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(relacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(distanciaText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(agregarRelacion)
+                        .addGap(43, 43, 43))))
         );
         FrameRoutesLayout.setVerticalGroup(
             FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(FrameRoutesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(graphics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(relacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel34)
+                    .addComponent(agregarRelacion)
+                    .addComponent(distanciaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(relacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel33))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jLabel17.setText("Cocinero 1");
@@ -415,6 +519,11 @@ public class Main extends javax.swing.JFrame {
         jLabel21.setText("Cocinero 5");
 
         cookComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "4" }));
+        cookComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cookComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel22.setText("Cocineros:");
 
@@ -662,8 +771,50 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel29.setText("Producto");
+
+        order.setText("Ordenar");
+        order.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FrameOrdenarLayout = new javax.swing.GroupLayout(FrameOrdenar.getContentPane());
+        FrameOrdenar.getContentPane().setLayout(FrameOrdenarLayout);
+        FrameOrdenarLayout.setHorizontalGroup(
+            FrameOrdenarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameOrdenarLayout.createSequentialGroup()
+                .addGroup(FrameOrdenarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FrameOrdenarLayout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(ordenarComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameOrdenarLayout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel29))
+                    .addGroup(FrameOrdenarLayout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(order)))
+                .addContainerGap(170, Short.MAX_VALUE))
+        );
+        FrameOrdenarLayout.setVerticalGroup(
+            FrameOrdenarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameOrdenarLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel29)
+                .addGap(18, 18, 18)
+                .addComponent(ordenarComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(order)
+                .addContainerGap(124, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
+
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salmans/salmans.jpeg"))); // NOI18N
+
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/salmans/bread.jpg"))); // NOI18N
 
         jMenu1.setText("File");
 
@@ -684,13 +835,31 @@ public class Main extends javax.swing.JFrame {
         jMenu1.add(MenuIngredients);
 
         MenuRoutes.setText("Rutas");
+        MenuRoutes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuRoutesActionPerformed(evt);
+            }
+        });
         jMenu1.add(MenuRoutes);
 
         MenuBakers.setText("Chefs");
+        MenuBakers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuBakersActionPerformed(evt);
+            }
+        });
         jMenu1.add(MenuBakers);
 
         jMenuItem1.setText("Total de Hoy");
         jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Ordenar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -700,11 +869,21 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(263, 263, 263)
+                .addComponent(jLabel30)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 766, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel30))
         );
 
         pack();
@@ -745,13 +924,13 @@ public class Main extends javax.swing.JFrame {
         this.addProductProductComboBox.setModel(model);
         this.modifyProductComboBox.setModel(model);
         this.deleteProductComboBox.setModel(model);
-
+        this.ordenarComboBox.setModel(model);
         // TODO add your handling code here:
     }//GEN-LAST:event_addProductMouseClicked
 
     private void addIngredientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addIngredientMouseClicked
         String name = this.addIngredientName.getText();
-        
+
         if (check(name, this.ingredientsClone)) {
             this.ingredientsClone.add(new Ingredients(name));
             System.out.println("entro");
@@ -760,7 +939,7 @@ public class Main extends javax.swing.JFrame {
                     ingredients.get(i).add(new Ingredients(name));
                 }
             }
-        }else{
+        } else {
             System.out.println("salgo");
             this.ingredientsClone.add(new Ingredients(name));
             Fresh = new Stack();
@@ -773,10 +952,6 @@ public class Main extends javax.swing.JFrame {
             Fresh.add(new Ingredients(name));
             ingredients.add(Fresh);
         }
-        
-        
-        
-        
 
         //cloneList(this.ingredients, this.ingredientsClone);
         //System.out.println(this.ingredients); 
@@ -860,12 +1035,13 @@ public class Main extends javax.swing.JFrame {
         this.addProductProductComboBox.setModel(model);
         this.modifyProductComboBox.setModel(model);
         this.deleteProductComboBox.setModel(model);
+        this.ordenarComboBox.setModel(model);
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteProductMouseClicked
 
     private void modifyProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyProductMouseClicked
-       ArrayList<Ingredients> inProduct = products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients();
-        products.set(modifyProductComboBox.getSelectedIndex(),new Products(this.modifyProductName.getText(),
+        ArrayList<Ingredients> inProduct = products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients();
+        products.set(modifyProductComboBox.getSelectedIndex(), new Products(this.modifyProductName.getText(),
                 Integer.parseInt(this.modifyProductTime.getText()),
                 Integer.parseInt(this.modifyProductPrice.getText())));
         this.modifyProductName.setText("");
@@ -879,8 +1055,80 @@ public class Main extends javax.swing.JFrame {
         this.addProductProductComboBox.setModel(model);
         this.modifyProductComboBox.setModel(model);
         this.deleteProductComboBox.setModel(model);
+        this.ordenarComboBox.setModel(model);
         // TODO add your handling code here:
     }//GEN-LAST:event_modifyProductMouseClicked
+
+    private void orderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderMouseClicked
+        total += this.products.get(this.ordenarComboBox.getSelectedIndex()).getPrice();
+        orders.add(this.products.get(this.ordenarComboBox.getSelectedIndex()));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderMouseClicked
+
+    private void MenuBakersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuBakersActionPerformed
+        this.FrameBakers.setVisible(true);
+        this.FrameBakers.setAlwaysOnTop(true);
+        this.FrameBakers.setSize(600, 400);
+        this.FrameBakers.toFront();
+        this.FrameBakers.setLocationRelativeTo(null);
+        this.FrameBakers.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuBakersActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        this.FrameOrdenar.setVisible(true);
+        this.FrameOrdenar.setAlwaysOnTop(true);
+        this.FrameOrdenar.setSize(600, 400);
+        this.FrameOrdenar.toFront();
+        this.FrameOrdenar.setLocationRelativeTo(null);
+        this.FrameOrdenar.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void cookComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookComboBoxActionPerformed
+        cont = cookComboBox.getSelectedIndex();
+
+        //cook.notfree(this.products.get(cookComboBox.getSelectedIndex()), ingredients, cook1);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cookComboBoxActionPerformed
+
+    private void graphicsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_graphicsMouseClicked
+        int x = evt.getX();
+        int y = evt.getY();
+
+        grafo.getNodos().add(new Node());
+        grafo.getNodos().get(grafo.getNodos().size() - 1).setCoordenada(new Coordenada(x - 10, y - 10));
+        grafo.getNodos().get(grafo.getNodos().size() - 1).setID(grafo.getNodos().size() - 1);
+        grafo.getNodos().get(grafo.getNodos().size() - 1).setNombre(Abc[iter]);
+        iter++;
+        this.nodosMauricio = grafo.getNodos();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.nodosMauricio.size(); i++) {
+            model.addElement(this.nodosMauricio.get(i).getNombre());
+        }
+        this.relacion1.setModel(model);
+        this.relacion2.setModel(model);
+        refresh();
+        addVertex = false;
+       
+                
+        // TODO add your handling code here:
+    }//GEN-LAST:event_graphicsMouseClicked
+
+    private void MenuRoutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRoutesActionPerformed
+        this.FrameRoutes.setVisible(true);
+        this.FrameRoutes.setAlwaysOnTop(true);
+        this.FrameRoutes.setSize(600, 500);
+        this.FrameRoutes.toFront();
+        this.FrameRoutes.setLocationRelativeTo(null);
+        this.FrameRoutes.repaint();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MenuRoutesActionPerformed
+
+    private void agregarRelacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarRelacionMouseClicked
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregarRelacionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -920,6 +1168,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame FrameBakers;
     private javax.swing.JFrame FrameIngredients;
+    private javax.swing.JFrame FrameOrdenar;
     private javax.swing.JFrame FrameProducts;
     private javax.swing.JFrame FrameRoutes;
     private javax.swing.JFrame FrameTotal;
@@ -937,6 +1186,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField addProductPrice;
     private javax.swing.JComboBox<String> addProductProductComboBox;
     private javax.swing.JTextField addProductTime;
+    private javax.swing.JButton agregarRelacion;
     private javax.swing.JProgressBar cook1;
     private javax.swing.JProgressBar cook2;
     private javax.swing.JProgressBar cook3;
@@ -947,6 +1197,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> deleteIngredienteComboBox;
     private javax.swing.JButton deleteProduct;
     private javax.swing.JComboBox<String> deleteProductComboBox;
+    private javax.swing.JTextField distanciaText;
+    private javax.swing.JPanel graphics;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -968,7 +1220,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -978,6 +1236,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -994,6 +1253,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField modifyProductName;
     private javax.swing.JTextField modifyProductPrice;
     private javax.swing.JTextField modifyProductTime;
+    private javax.swing.JComboBox<String> ordenarComboBox;
+    private javax.swing.JButton order;
+    private javax.swing.JComboBox<String> relacion1;
+    private javax.swing.JComboBox<String> relacion2;
     private javax.swing.JProgressBar truck1;
     private javax.swing.JProgressBar truck2;
     private javax.swing.JProgressBar truck3;
@@ -1007,6 +1270,72 @@ public class Main extends javax.swing.JFrame {
     //private ArrayList<Stack> ingredients = new ArrayList();
     private ArrayList<Ingredients> ingredientsInProduct;
     private ArrayList<Products> products = new ArrayList();
+    private int total = 0;
+    private int cont = 1;
+    private Queue<Products> orders;
+    private Grafo grafo = new Grafo();
+    private String Abc[] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+        "S", "T", "U", "V", "W", "X", "Y", "Z", "A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1", "I1", "J1", "K1", "L1", "M1", "N1", "O1", "P1", "Q1", "R1",
+        "S1", "T1", "U1", "V1", "W1", "X1", "Y1", "Z1", "A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", "I2", "J2", "K2", "L2", "M2", "N2", "O2", "P2", "Q2", "R2",
+        "S2", "T2", "U2", "V2", "W2", "X2", "Y2", "Z2"};
+    private int iter = 0;
+    private boolean addVertex = false;
+    private ArrayList<Node> nodosMauricio = new ArrayList();
+
+    public void refresh() {
+
+        //jp_graphics.updateUI();
+        //g.clearRect(0, 0, jp_graphics.getWidth(), jp_graphics.getHeight());
+        //jp_graphics.removeAll();
+        Font font = new Font("Dialog", Font.BOLD, 14);
+        Graphics g = this.graphics.getGraphics();
+        g.setFont(font);
+
+        for (int i = 0; i < grafo.getNodos().size(); i++) {
+            g.setColor(Color.RED);
+            g.drawOval(grafo.getNodos().get(i).getCoordenada().getX(),
+                    grafo.getNodos().get(i).getCoordenada().getY(),
+                    30, 30);
+            g.fillOval(grafo.getNodos().get(i).getCoordenada().getX(),
+                    grafo.getNodos().get(i).getCoordenada().getY(),
+                    30, 30);
+
+        }
+
+        int x1, x2, y1, y2;
+
+        for (int i = 0; i < grafo.getNodos().size(); i++) {
+
+            for (int j = 0; j < grafo.getNodos().get(i).getAristas().size(); j++) {
+                try {
+                    x1 = grafo.getNodos().get(i).getAristas().get(j).getNodoInicial().getID();
+                    y1 = grafo.getNodos().get(i).getAristas().get(j).getNodoInicial().getID();
+                    x2 = grafo.getNodos().get(i).getAristas().get(j).getNodoFinal().getID();
+                    y2 = grafo.getNodos().get(i).getAristas().get(j).getNodoFinal().getID();
+                    g.setColor(Color.RED);
+                    g.drawLine(grafo.getNodos().get(x1).getCoordenada().getX() + 15,
+                            grafo.getNodos().get(y1).getCoordenada().getY() + 15,
+                            grafo.getNodos().get(x2).getCoordenada().getX() + 15,
+                            grafo.getNodos().get(y2).getCoordenada().getY() + 15);
+                    g.setColor(Color.BLUE);
+                    g.drawString(Long.toString(grafo.getNodos().get(i).getAristas().get(j).getDistancia()),
+                            ((grafo.getNodos().get(x1).getCoordenada().getX() + 15) + (grafo.getNodos().get(x2).getCoordenada().getX() + 15)) / 2, ((grafo.getNodos().get(y1).getCoordenada().getY() + 15) + (grafo.getNodos().get(y2).getCoordenada().getY() + 15)) / 2);
+                    g.setColor(Color.RED);
+
+                } catch (Exception e) {
+                }
+
+            }
+
+        }
+
+        for (int i = 0; i < grafo.getNodos().size(); i++) {
+            g.setColor(Color.BLACK);
+            g.drawString(grafo.getNodos().get(i).getNombre(), grafo.getNodos().get(i).getCoordenada().getX() + 10, grafo.getNodos().get(i).getCoordenada().getY() + 18);
+
+        }
+
+    }
 
     /*public static ArrayList meterEnStacks(ArrayList<Ingredients> ingredients, boolean b, ArrayList s) {
         ArrayList<Ingredients> ingredientes = ingredients;
@@ -1047,7 +1376,8 @@ public class Main extends javax.swing.JFrame {
         }
 
     }
-    public static boolean check(String nombre, ArrayList<Ingredients> ing){
+
+    public static boolean check(String nombre, ArrayList<Ingredients> ing) {
         for (int i = 0; i < ing.size(); i++) {
             if (nombre.equalsIgnoreCase(ing.get(i).getName())) {
                 return true;
@@ -1055,5 +1385,80 @@ public class Main extends javax.swing.JFrame {
         }
         return false;
     }
-    
+
+    public static Long ruta(int x, int y, Long[][] pond) {
+        return pond[x][y];
+    }
+
+    public static int[][] llenarCaminos(int size) {
+        int[][] caminos = new int[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                caminos[i][j] = j;
+            }
+        }
+        return caminos;
+    }
+
+    public static Long[][] Cancer(int size, ArrayList<Node> nodos) {
+        Long[][] pond = new Long[size][size];
+
+        for (int i = 0; i < nodos.size(); i++) {
+            for (int j = 0; j < nodos.get(i).getAristas().size(); j++) {
+                try {
+                    pond[nodos.get(i).getAristas().get(j).getInicial()][nodos.get(i).getAristas().get(j).getFinall()]
+                            = nodos.get(i).getAristas().get(j).getDistancia();
+                    pond[i][i] = 0L;
+
+                } catch (Exception ex) {
+                }
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (pond[i][j] == null) {
+                    pond[i][j] = 100000L;
+                }
+            }
+        }
+        return pond;
+
+    }
+
+    public static void Floyd(int size, int[][] cam, Long[][] pond) {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                for (int k = 0; k < size; k++) {
+                    if (pond[j][i] + pond[i][k] < pond[j][k]) {
+                        pond[j][k] = pond[j][i] + pond[i][k];
+                        cam[j][k] = i;
+                    }
+                }
+            }
+        }
+    }
+
+    public static void Print(int[][] caminos) {
+        System.out.println("caminos");
+        for (int i = 0; i < caminos.length; i++) {
+            for (int j = 0; j < caminos[i].length; j++) {
+                System.out.printf("%5d", caminos[i][j] + "\n");
+
+            }
+            System.out.println("");
+        }
+
+    }
+
+    public static void Print(Long[][] ponderaciones) {
+        System.out.println("ponderaciones");
+        for (int i = 0; i < ponderaciones.length; i++) {
+            for (int j = 0; j < ponderaciones[i].length; j++) {
+                System.out.printf("%5d", ponderaciones[i][j]);
+            }
+            System.out.println("");
+        }
+
+    }
+
 }
