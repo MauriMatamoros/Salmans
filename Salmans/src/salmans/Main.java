@@ -71,6 +71,18 @@ public class Main extends javax.swing.JFrame {
         deleteProduct = new javax.swing.JButton();
         FrameRoutes = new javax.swing.JFrame();
         FrameBakers = new javax.swing.JFrame();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        cook1 = new javax.swing.JProgressBar();
+        cook2 = new javax.swing.JProgressBar();
+        cook3 = new javax.swing.JProgressBar();
+        cook4 = new javax.swing.JProgressBar();
+        cook5 = new javax.swing.JProgressBar();
+        cookComboBox = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
         FrameIngredients = new javax.swing.JFrame();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
@@ -81,12 +93,27 @@ public class Main extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         deleteIngredienteComboBox = new javax.swing.JComboBox<>();
         deleteIngredient = new javax.swing.JButton();
+        FrameTrucks = new javax.swing.JFrame();
+        truck2 = new javax.swing.JProgressBar();
+        truck3 = new javax.swing.JProgressBar();
+        truck4 = new javax.swing.JProgressBar();
+        truck5 = new javax.swing.JProgressBar();
+        jLabel23 = new javax.swing.JLabel();
+        truckComboBox = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        truck1 = new javax.swing.JProgressBar();
+        FrameTotal = new javax.swing.JFrame();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MenuProducts = new javax.swing.JMenuItem();
         MenuIngredients = new javax.swing.JMenuItem();
         MenuRoutes = new javax.swing.JMenuItem();
         MenuBakers = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         FrameProducts.setPreferredSize(new java.awt.Dimension(600, 400));
 
@@ -206,6 +233,11 @@ public class Main extends javax.swing.JFrame {
         jLabel10.setText("Tiempo");
 
         modifyProduct.setText("Modify");
+        modifyProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyProductMouseClicked(evt);
+            }
+        });
 
         jLabel11.setText("Modificar Ingredientes");
 
@@ -311,7 +343,12 @@ public class Main extends javax.swing.JFrame {
 
         jLabel14.setText("Producto");
 
-        deleteProduct.setText("jButton1");
+        deleteProduct.setText("Eliminar");
+        deleteProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteProductMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -367,18 +404,85 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        jLabel17.setText("Cocinero 1");
+
+        jLabel18.setText("Cocinero 2");
+
+        jLabel19.setText("Cocinero 3");
+
+        jLabel20.setText("Cocinero 4");
+
+        jLabel21.setText("Cocinero 5");
+
+        cookComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "4" }));
+
+        jLabel22.setText("Cocineros:");
+
         javax.swing.GroupLayout FrameBakersLayout = new javax.swing.GroupLayout(FrameBakers.getContentPane());
         FrameBakers.getContentPane().setLayout(FrameBakersLayout);
         FrameBakersLayout.setHorizontalGroup(
             FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(FrameBakersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FrameBakersLayout.createSequentialGroup()
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cook1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameBakersLayout.createSequentialGroup()
+                        .addComponent(jLabel18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cook2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameBakersLayout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cook3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameBakersLayout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cook4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameBakersLayout.createSequentialGroup()
+                        .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel22))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cookComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cook5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         FrameBakersLayout.setVerticalGroup(
             FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(FrameBakersLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(FrameBakersLayout.createSequentialGroup()
+                        .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(FrameBakersLayout.createSequentialGroup()
+                                .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(FrameBakersLayout.createSequentialGroup()
+                                        .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel17)
+                                            .addComponent(cook1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel18))
+                                    .addComponent(cook2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel19))
+                            .addComponent(cook3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel20))
+                    .addComponent(cook4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel21)
+                    .addComponent(cook5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(FrameBakersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(cookComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
-
-        FrameIngredients.setPreferredSize(new java.awt.Dimension(220, 300));
 
         jLabel15.setText("Nombre");
 
@@ -467,9 +571,99 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel23.setText("Cocinero 1");
+
+        truckComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "4" }));
+
+        jLabel24.setText("Cocinero 2");
+
+        jLabel25.setText("Cocineros:");
+
+        jLabel26.setText("Cocinero 3");
+
+        jLabel27.setText("Cocinero 4");
+
+        jLabel28.setText("Cocinero 5");
+
+        javax.swing.GroupLayout FrameTrucksLayout = new javax.swing.GroupLayout(FrameTrucks.getContentPane());
+        FrameTrucks.getContentPane().setLayout(FrameTrucksLayout);
+        FrameTrucksLayout.setHorizontalGroup(
+            FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameTrucksLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FrameTrucksLayout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(truck1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameTrucksLayout.createSequentialGroup()
+                        .addComponent(jLabel24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(truck2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameTrucksLayout.createSequentialGroup()
+                        .addComponent(jLabel26)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(truck3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameTrucksLayout.createSequentialGroup()
+                        .addComponent(jLabel27)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(truck4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FrameTrucksLayout.createSequentialGroup()
+                        .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel25))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(truckComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(truck5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+        FrameTrucksLayout.setVerticalGroup(
+            FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FrameTrucksLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(FrameTrucksLayout.createSequentialGroup()
+                        .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(FrameTrucksLayout.createSequentialGroup()
+                                .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(FrameTrucksLayout.createSequentialGroup()
+                                        .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel23)
+                                            .addComponent(truck1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel24))
+                                    .addComponent(truck2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel26))
+                            .addComponent(truck3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel27))
+                    .addComponent(truck4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel28)
+                    .addComponent(truck5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(FrameTrucksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(truckComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout FrameTotalLayout = new javax.swing.GroupLayout(FrameTotal.getContentPane());
+        FrameTotal.getContentPane().setLayout(FrameTotalLayout);
+        FrameTotalLayout.setHorizontalGroup(
+            FrameTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        FrameTotalLayout.setVerticalGroup(
+            FrameTotalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jMenu1.setText("File");
 
@@ -494,6 +688,9 @@ public class Main extends javax.swing.JFrame {
 
         MenuBakers.setText("Chefs");
         jMenu1.add(MenuBakers);
+
+        jMenuItem1.setText("Total de Hoy");
+        jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
 
@@ -547,36 +744,78 @@ public class Main extends javax.swing.JFrame {
         }
         this.addProductProductComboBox.setModel(model);
         this.modifyProductComboBox.setModel(model);
+        this.deleteProductComboBox.setModel(model);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_addProductMouseClicked
 
     private void addIngredientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addIngredientMouseClicked
-        ingredients.add(new Ingredients(this.addIngredientName.getText()));
+        String name = this.addIngredientName.getText();
+        
+        if (check(name, this.ingredientsClone)) {
+            this.ingredientsClone.add(new Ingredients(name));
+            System.out.println("entro");
+            for (int i = 0; i < this.ingredients.size(); i++) {
+                if (name.equalsIgnoreCase(((Ingredients) ingredients.get(i).peek()).getName())) {
+                    ingredients.get(i).add(new Ingredients(name));
+                }
+            }
+        }else{
+            System.out.println("salgo");
+            this.ingredientsClone.add(new Ingredients(name));
+            Fresh = new Stack();
+            Fresh.add(new Ingredients(name));
+            ingredients.add(Fresh);
+        }
+        if (this.ingredientsClone.isEmpty()) {
+            this.ingredientsClone.add(new Ingredients(name));
+            Fresh = new Stack();
+            Fresh.add(new Ingredients(name));
+            ingredients.add(Fresh);
+        }
+        
+        
+        
+        
+
+        //cloneList(this.ingredients, this.ingredientsClone);
+        //System.out.println(this.ingredients); 
         this.addIngredientName.setText("");
+        //ingredients = meterEnStacks(this.ingredientsClone, valid , ingredients);
+        System.out.println(this.ingredients);
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         for (int i = 0; i < this.ingredients.size(); i++) {
-            model.addElement(this.ingredients.get(i));
+            model.addElement(this.ingredients.get(i).peek());
         }
         this.deleteIngredienteComboBox.setModel(model);
         this.addProductIngredientComboBox.setModel(model);
         this.modifyAddIngredienteToProductProductComboBox.setModel(model);
+
         // TODO add your handling code here:
     }//GEN-LAST:event_addIngredientMouseClicked
 
     private void deleteIngredientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteIngredientMouseClicked
         this.ingredients.remove(this.deleteIngredienteComboBox.getSelectedIndex());
+        //ingredients = meterEnStacks(this.ingredients,valid,ingredients);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.ingredients.size(); i++) {
+            model.addElement(this.ingredients.get(i).peek());
+        }
+        this.deleteIngredienteComboBox.setModel(model);
+        this.addProductIngredientComboBox.setModel(model);
+        this.modifyAddIngredienteToProductProductComboBox.setModel(model);
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteIngredientMouseClicked
 
     private void addIngredientToProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addIngredientToProductMouseClicked
         if (this.products.get(this.addProductProductComboBox.getSelectedIndex()).getIngredients() != null) {
             this.ingredientsInProduct = this.products.get(this.addProductProductComboBox.getSelectedIndex()).getIngredients();
-            this.ingredientsInProduct.add(this.ingredients.get(this.addProductIngredientComboBox.getSelectedIndex()));
+            this.ingredientsInProduct.add((Ingredients) this.ingredients.get(this.addProductIngredientComboBox.getSelectedIndex()).peek());
             this.products.get(this.addProductProductComboBox.getSelectedIndex()).setIngredients(this.ingredientsInProduct);
         } else {
             this.ingredientsInProduct = new ArrayList();
-            this.ingredientsInProduct.add(this.ingredients.get(this.addProductIngredientComboBox.getSelectedIndex()));
+            //this.ingredientsInProduct.add(this.ingredients.get(this.addProductIngredientComboBox.getSelectedIndex()));
+            this.ingredientsInProduct.add((Ingredients) this.ingredients.get(this.addProductIngredientComboBox.getSelectedIndex()).peek());
             this.products.get(this.addProductProductComboBox.getSelectedIndex()).setIngredients(this.ingredientsInProduct);
         }
         // TODO add your handling code here:
@@ -594,16 +833,54 @@ public class Main extends javax.swing.JFrame {
 
     private void modifyAddIngredientToProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyAddIngredientToProductMouseClicked
         this.ingredientsInProduct = this.products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients();
-        this.ingredientsInProduct.add(this.ingredients.get(this.modifyAddIngredienteToProductProductComboBox.getSelectedIndex()));
+        this.ingredientsInProduct.add((Ingredients) this.ingredients.get(this.modifyAddIngredienteToProductProductComboBox.getSelectedIndex()).peek());
         this.products.get(this.modifyProductComboBox.getSelectedIndex()).setIngredients(this.ingredientsInProduct);
         System.out.println(this.products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients());
         // TODO add your handling code here:
     }//GEN-LAST:event_modifyAddIngredientToProductMouseClicked
 
     private void modifyDeleteIngredientfromProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyDeleteIngredientfromProductMouseClicked
-
+        this.ingredientsInProduct = this.products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients();
+        this.ingredientsInProduct.remove(this.modifyDeleteProductIngredienteComboBox.getSelectedIndex());
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.ingredientsInProduct.size(); i++) {
+            model.addElement(this.ingredientsInProduct.get(i));
+        }
+        this.modifyDeleteProductIngredienteComboBox.setModel(model);
+        this.products.get(this.modifyProductComboBox.getSelectedIndex()).setIngredients(this.ingredientsInProduct);
         // TODO add your handling code here:
     }//GEN-LAST:event_modifyDeleteIngredientfromProductMouseClicked
+
+    private void deleteProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteProductMouseClicked
+        this.products.remove(deleteProductComboBox.getSelectedIndex());
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.products.size(); i++) {
+            model.addElement(this.products.get(i));
+        }
+        this.addProductProductComboBox.setModel(model);
+        this.modifyProductComboBox.setModel(model);
+        this.deleteProductComboBox.setModel(model);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteProductMouseClicked
+
+    private void modifyProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyProductMouseClicked
+       ArrayList<Ingredients> inProduct = products.get(this.modifyProductComboBox.getSelectedIndex()).getIngredients();
+        products.set(modifyProductComboBox.getSelectedIndex(),new Products(this.modifyProductName.getText(),
+                Integer.parseInt(this.modifyProductTime.getText()),
+                Integer.parseInt(this.modifyProductPrice.getText())));
+        this.modifyProductName.setText("");
+        this.modifyProductTime.setText("");
+        this.modifyProductPrice.setText("");
+        products.get(this.modifyProductComboBox.getSelectedIndex()).setIngredients(inProduct);
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (int i = 0; i < this.products.size(); i++) {
+            model.addElement(this.products.get(i));
+        }
+        this.addProductProductComboBox.setModel(model);
+        this.modifyProductComboBox.setModel(model);
+        this.deleteProductComboBox.setModel(model);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modifyProductMouseClicked
 
     /**
      * @param args the command line arguments
@@ -645,6 +922,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFrame FrameIngredients;
     private javax.swing.JFrame FrameProducts;
     private javax.swing.JFrame FrameRoutes;
+    private javax.swing.JFrame FrameTotal;
+    private javax.swing.JFrame FrameTrucks;
     private javax.swing.JMenuItem MenuBakers;
     private javax.swing.JMenuItem MenuIngredients;
     private javax.swing.JMenuItem MenuProducts;
@@ -658,6 +937,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField addProductPrice;
     private javax.swing.JComboBox<String> addProductProductComboBox;
     private javax.swing.JTextField addProductTime;
+    private javax.swing.JProgressBar cook1;
+    private javax.swing.JProgressBar cook2;
+    private javax.swing.JProgressBar cook3;
+    private javax.swing.JProgressBar cook4;
+    private javax.swing.JProgressBar cook5;
+    private javax.swing.JComboBox<String> cookComboBox;
     private javax.swing.JButton deleteIngredient;
     private javax.swing.JComboBox<String> deleteIngredienteComboBox;
     private javax.swing.JButton deleteProduct;
@@ -670,7 +955,19 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -680,6 +977,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -696,10 +994,66 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField modifyProductName;
     private javax.swing.JTextField modifyProductPrice;
     private javax.swing.JTextField modifyProductTime;
+    private javax.swing.JProgressBar truck1;
+    private javax.swing.JProgressBar truck2;
+    private javax.swing.JProgressBar truck3;
+    private javax.swing.JProgressBar truck4;
+    private javax.swing.JProgressBar truck5;
+    private javax.swing.JComboBox<String> truckComboBox;
     // End of variables declaration//GEN-END:variables
-    private ArrayList<Ingredients> ingredients = new ArrayList();
+    private ArrayList<Stack> ingredients = new ArrayList();
+    private Stack<Ingredients> Fresh;
+    private ArrayList<Ingredients> ingredientsClone = new ArrayList();
+    //private ArrayList<Stack> ingredients = new ArrayList();
     private ArrayList<Ingredients> ingredientsInProduct;
     private ArrayList<Products> products = new ArrayList();
-    private Stack fresh;
 
+    /*public static ArrayList meterEnStacks(ArrayList<Ingredients> ingredients, boolean b, ArrayList s) {
+        ArrayList<Ingredients> ingredientes = ingredients;
+        ArrayList<Stack> stacks;
+        if (b) {
+             stacks = new ArrayList();
+            b = false;
+        }else{
+             stacks = s;
+        }
+        
+        Stack<Ingredients> Fresh;
+        
+        while (ingredientes.size() != 0) {
+            Fresh = new Stack();
+            String nombre = ingredientes.get(0).getName();
+            for (int i = 0; i < ingredientes.size(); i++) {
+                if (nombre.equalsIgnoreCase(ingredientes.get(i).getName())) {
+                    Fresh.add(new Ingredients(ingredientes.get(i).getName()));
+                    ingredientes.remove(i);
+                }
+            }
+            System.out.println(stacks);
+            if (!ingredientes.isEmpty()) {
+                ingredientes.remove(0);
+            }
+            
+            stacks.add(Fresh);
+        }
+        
+        return stacks;
+
+    }
+     */
+    public static void cloneList(ArrayList a, ArrayList b) {
+        for (int i = 0; i < a.size(); i++) {
+            b.add(a.get(i));
+        }
+
+    }
+    public static boolean check(String nombre, ArrayList<Ingredients> ing){
+        for (int i = 0; i < ing.size(); i++) {
+            if (nombre.equalsIgnoreCase(ing.get(i).getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
 }
