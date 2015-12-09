@@ -94,13 +94,23 @@ public class Main extends javax.swing.JFrame {
         deleteProduct = new javax.swing.JButton();
         FrameRoutes = new javax.swing.JFrame();
         graphics = new javax.swing.JPanel();
+        mapa = new javax.swing.JLabel();
         relacion1 = new javax.swing.JComboBox<>();
         relacion2 = new javax.swing.JComboBox<>();
         agregarRelacion = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        distanciaText = new javax.swing.JTextField();
+        distanceText = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        nodoEliminar = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
+        DistanciaFloyd = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         FrameBakers = new javax.swing.JFrame();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -441,11 +451,17 @@ public class Main extends javax.swing.JFrame {
         graphics.setLayout(graphicsLayout);
         graphicsLayout.setHorizontalGroup(
             graphicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(graphicsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         graphicsLayout.setVerticalGroup(
             graphicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGroup(graphicsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mapa, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         agregarRelacion.setText("Agregar Relacion");
@@ -461,6 +477,40 @@ public class Main extends javax.swing.JFrame {
 
         jLabel34.setText("Distancia");
 
+        jLabel35.setText("Punto a Eliminar");
+
+        jButton1.setText("Eliminar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jLabel36.setText("Distancia Optima");
+
+        DistanciaFloyd.setText("     ");
+
+        jButton2.setText("Calcular Distancia");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+
+        jMenu2.setText("File");
+
+        jMenuItem3.setText("Open");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem3);
+
+        jMenuBar2.add(jMenu2);
+
+        FrameRoutes.setJMenuBar(jMenuBar2);
+
         javax.swing.GroupLayout FrameRoutesLayout = new javax.swing.GroupLayout(FrameRoutes.getContentPane());
         FrameRoutes.getContentPane().setLayout(FrameRoutesLayout);
         FrameRoutesLayout.setHorizontalGroup(
@@ -475,19 +525,34 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(FrameRoutesLayout.createSequentialGroup()
                                 .addComponent(jLabel33)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(relacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(FrameRoutesLayout.createSequentialGroup()
                                 .addComponent(jLabel31)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(relacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(32, 32, 32)
-                        .addComponent(jLabel34)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(distanciaText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(FrameRoutesLayout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(distanceText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(FrameRoutesLayout.createSequentialGroup()
+                                .addComponent(jLabel36)
+                                .addGap(18, 18, 18)
+                                .addComponent(DistanciaFloyd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(64, 64, 64)
-                        .addComponent(agregarRelacion)
-                        .addGap(43, 43, 43))))
+                        .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(agregarRelacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(43, 43, 43))
+                    .addGroup(FrameRoutesLayout.createSequentialGroup()
+                        .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addComponent(nodoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(352, 352, 352))))
         );
         FrameRoutesLayout.setVerticalGroup(
             FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -500,12 +565,22 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel31)
                     .addComponent(jLabel34)
                     .addComponent(agregarRelacion)
-                    .addComponent(distanciaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(distanceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(relacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel33))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(FrameRoutesLayout.createSequentialGroup()
+                        .addGroup(FrameRoutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(relacion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel36)
+                            .addComponent(DistanciaFloyd)
+                            .addComponent(jButton2))
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nodoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel17.setText("Cocinero 1");
@@ -1103,21 +1178,25 @@ public class Main extends javax.swing.JFrame {
         iter++;
         this.nodosMauricio = grafo.getNodos();
         DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel model2 = new DefaultComboBoxModel();
+        DefaultComboBoxModel model3 = new DefaultComboBoxModel();
         for (int i = 0; i < this.nodosMauricio.size(); i++) {
             model.addElement(this.nodosMauricio.get(i).getNombre());
+            model2.addElement(this.nodosMauricio.get(i).getNombre());
+            model3.addElement(this.grafo.getNodos().get(i).getNombre());
         }
         this.relacion1.setModel(model);
-        this.relacion2.setModel(model);
+        this.relacion2.setModel(model2);
+        this.nodoEliminar.setModel(model3);
         refresh();
         addVertex = false;
-       
-                
+
         // TODO add your handling code here:
     }//GEN-LAST:event_graphicsMouseClicked
 
     private void MenuRoutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRoutesActionPerformed
         this.FrameRoutes.setVisible(true);
-        this.FrameRoutes.setAlwaysOnTop(true);
+        this.FrameRoutes.setAlwaysOnTop(false);
         this.FrameRoutes.setSize(600, 500);
         this.FrameRoutes.toFront();
         this.FrameRoutes.setLocationRelativeTo(null);
@@ -1126,9 +1205,67 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuRoutesActionPerformed
 
     private void agregarRelacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_agregarRelacionMouseClicked
-        
+        grafo.getNodos().get(relacion1.getSelectedIndex()).getAristas().add(new Arista(Integer.parseInt(distanceText.getText()),
+                grafo.getNodos().get(relacion1.getSelectedIndex()), grafo.getNodos().get(relacion2.getSelectedIndex())));
+        refresh();
         // TODO add your handling code here:
     }//GEN-LAST:event_agregarRelacionMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        grafo.removeVertex(nodoEliminar.getSelectedIndex());
+        this.setSize(this.getWidth() + 1, this.getHeight() + 1);
+        this.setSize(this.getWidth() - 1, this.getHeight() - 1);
+        refresh();
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        DefaultComboBoxModel model2 = new DefaultComboBoxModel();
+        DefaultComboBoxModel model3 = new DefaultComboBoxModel();
+        for (int i = 0; i < this.grafo.getNodos().size(); i++) {
+            model.addElement(this.grafo.getNodos().get(i).getNombre());
+            model2.addElement(this.grafo.getNodos().get(i).getNombre());
+            model3.addElement(this.grafo.getNodos().get(i).getNombre());
+        }
+        this.relacion1.setModel(model);
+        this.relacion2.setModel(model2);
+        this.nodoEliminar.setModel(model3);
+        refresh();
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        Long[][] ponderaciones = Cancer(nodosMauricio.size(), nodosMauricio);
+        int[][] caminos = llenarCaminos(nodosMauricio.size());
+        Floyd(nodosMauricio.size(), caminos, ponderaciones);
+        this.DistanciaFloyd.setText("" + ruta(relacion1.getSelectedIndex(), relacion2.getSelectedIndex(), ponderaciones));
+        Print(caminos);
+        Print(ponderaciones);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Imagenes", "jpg", "png", "bmp", "mpg", "ico");
+        chooser.setFileFilter(filter);
+
+        int Okoption;
+
+        Okoption = chooser.showOpenDialog(this);
+
+        if (Okoption == JFileChooser.APPROVE_OPTION) {
+            imagen = chooser.getSelectedFile();
+            icon = new ImageIcon(imagen.getAbsolutePath());
+
+            int imgHeight = mapa.getHeight();
+            int imgWidth = mapa.getWidth();
+
+            img = icon.getImage();
+            newImg = img.getScaledInstance(imgWidth, imgHeight, java.awt.Image.SCALE_SMOOTH);
+            icon = new ImageIcon(newImg);
+            mapa.setIcon(icon);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1166,6 +1303,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DistanciaFloyd;
     private javax.swing.JFrame FrameBakers;
     private javax.swing.JFrame FrameIngredients;
     private javax.swing.JFrame FrameOrdenar;
@@ -1197,8 +1335,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> deleteIngredienteComboBox;
     private javax.swing.JButton deleteProduct;
     private javax.swing.JComboBox<String> deleteProductComboBox;
-    private javax.swing.JTextField distanciaText;
+    private javax.swing.JTextField distanceText;
     private javax.swing.JPanel graphics;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1227,6 +1367,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1234,9 +1376,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1244,6 +1389,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JLabel mapa;
     private javax.swing.JButton modifyAddIngredientToProduct;
     private javax.swing.JComboBox<String> modifyAddIngredienteToProductProductComboBox;
     private javax.swing.JButton modifyDeleteIngredientfromProduct;
@@ -1253,6 +1399,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField modifyProductName;
     private javax.swing.JTextField modifyProductPrice;
     private javax.swing.JTextField modifyProductTime;
+    private javax.swing.JComboBox<String> nodoEliminar;
     private javax.swing.JComboBox<String> ordenarComboBox;
     private javax.swing.JButton order;
     private javax.swing.JComboBox<String> relacion1;
@@ -1267,10 +1414,13 @@ public class Main extends javax.swing.JFrame {
     private ArrayList<Stack> ingredients = new ArrayList();
     private Stack<Ingredients> Fresh;
     private ArrayList<Ingredients> ingredientsClone = new ArrayList();
+    private File imagen;
     //private ArrayList<Stack> ingredients = new ArrayList();
     private ArrayList<Ingredients> ingredientsInProduct;
     private ArrayList<Products> products = new ArrayList();
     private int total = 0;
+    private Image img, newImg;
+    private ImageIcon icon = null;
     private int cont = 1;
     private Queue<Products> orders;
     private Grafo grafo = new Grafo();
