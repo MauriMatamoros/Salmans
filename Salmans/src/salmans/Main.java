@@ -1180,9 +1180,9 @@ public class Main extends javax.swing.JFrame {
         DefaultComboBoxModel model = new DefaultComboBoxModel();
         DefaultComboBoxModel model2 = new DefaultComboBoxModel();
         DefaultComboBoxModel model3 = new DefaultComboBoxModel();
-        for (int i = 0; i < this.nodosMauricio.size(); i++) {
-            model.addElement(this.nodosMauricio.get(i).getNombre());
-            model2.addElement(this.nodosMauricio.get(i).getNombre());
+        for (int i = 0; i < this.grafo.getNodos().size(); i++) {
+            model.addElement(this.grafo.getNodos().get(i).getNombre());
+            model2.addElement(this.grafo.getNodos().get(i).getNombre());
             model3.addElement(this.grafo.getNodos().get(i).getNombre());
         }
         this.relacion1.setModel(model);
@@ -1235,10 +1235,11 @@ public class Main extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         Long[][] ponderaciones = Cancer(nodosMauricio.size(), nodosMauricio);
         int[][] caminos = llenarCaminos(nodosMauricio.size());
+        Print(ponderaciones);
+        Print(caminos);
         Floyd(nodosMauricio.size(), caminos, ponderaciones);
         this.DistanciaFloyd.setText("" + ruta(relacion1.getSelectedIndex(), relacion2.getSelectedIndex(), ponderaciones));
-        Print(caminos);
-        Print(ponderaciones);
+       
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
@@ -1567,7 +1568,7 @@ public class Main extends javax.swing.JFrame {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (pond[i][j] == null) {
-                    pond[i][j] = 100000L;
+                    pond[i][j] = -1L;
                 }
             }
         }
